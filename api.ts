@@ -1,11 +1,14 @@
 import { ITask } from './types/type';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3001';
+const baseUrl =  'https://jsonplaceholder.typicode.com';
+
+//http://localhost:3001/tasks => post method
+//http://localhost:3001/tasks => get method
 
 export const getAllTodos = async (): Promise<ITask[]> => {
   try {
-    let todos = await axios.get(`${baseUrl}/tasks`);
+    let todos = await axios.get(`${baseUrl}/posts`);
     //console.log(todos, 'api');
     return todos.data as any;
   } catch (error) {
@@ -14,7 +17,7 @@ export const getAllTodos = async (): Promise<ITask[]> => {
 };
 
 export const addTodo = async (todo: ITask): Promise<ITask> => {
-  const newTodo = await axios.post(`${baseUrl}/tasks`, todo);
+  const newTodo = await axios.post(`${baseUrl}/posts`, todo);
   return newTodo as any;
 };
 

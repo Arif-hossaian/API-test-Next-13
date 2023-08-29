@@ -13,6 +13,7 @@ yarn dev
 For run json-server
 ```bash
 npm run json-server
+```
 
 
  ## Rules 2 ##
